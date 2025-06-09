@@ -90,6 +90,20 @@ export class Form {
     }
   }
 
+  /**
+   * Register a custom component for a specific field type
+   * @param {string} baseType - The base type of the field (e.g. 'select')
+   * @param {string} customType - The custom type identifier (e.g. 'async-select')
+   * @param {Object} component - The custom component to register
+   */
+  registerCustomComponent(baseType, customType, component) {
+    const formFields = this.get('formFields');
+    if (!formFields.registerCustomComponent) {
+      throw new Error('Custom component registration is not supported by the current form fields implementation');
+    }
+    formFields.registerCustomComponent(baseType, customType, component);
+  }
+
   clear() {
     // clear diagram services (e.g. EventBus)
     this._emit('diagram.clear');
@@ -427,7 +441,7 @@ export class Form {
 
     function initializeFieldDataRecursively(initializedData, formField, indexes) {
       const { defaultValue, type, isRepeating } = formField;
-      const { config: fieldConfig } = formFields.get(type);
+      const { config: fieldConfig } = formFields.get(type, formField);
 
       const valuePath = pathRegistry.getValuePath(formField, { indexes });
       let valueData = get(data, valuePath);

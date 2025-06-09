@@ -1,5 +1,6 @@
 import { Form } from './Form';
 
+export { FormReact } from './components/FormReact';
 export { FormFieldRegistry, FormLayouter, Importer, FieldFactory, PathRegistry } from './core';
 export * from './render';
 export * from './util';
@@ -29,3 +30,6 @@ export function createForm(options) {
     return form;
   });
 }
+
+
+

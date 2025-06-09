@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import { FormReact } from '../components/FormReact';
 
 export default {
@@ -10,7 +9,9 @@ export default {
   },
 };
 
-const Template = (args) => h(FormReact, args);
+const Template = (args) => {
+  return <FormReact {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {
@@ -85,53 +86,5 @@ Default.args = {
     firstName: 'John',
     lastName: 'Doe',
     email: 'john.doe@example.com',
-  },
-};
-
-export const ReadOnly = Template.bind({});
-ReadOnly.args = {
-  ...Default.args,
-  properties: {
-    readOnly: true,
-  },
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...Default.args,
-  properties: {
-    disabled: true,
-  },
-};
-
-export const WithValidation = Template.bind({});
-WithValidation.args = {
-  schema: {
-    components: [
-      {
-        type: 'text',
-        id: 'username',
-        label: 'Username',
-        required: true,
-        validate: {
-          minLength: 3,
-          maxLength: 20,
-        },
-      },
-      {
-        type: 'number',
-        id: 'age',
-        label: 'Age',
-        required: true,
-        validate: {
-          min: 18,
-          max: 120,
-        },
-      },
-    ],
-  },
-  data: {
-    username: 'johndoe',
-    age: 25,
   },
 };

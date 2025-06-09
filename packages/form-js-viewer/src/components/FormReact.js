@@ -11,6 +11,7 @@ import '../../assets/form-js-base.css';
  * @param {Function} [props.onSubmit] - Callback when form is submitted
  * @param {Function} [props.onChange] - Callback when form data changes
  * @param {string} [props.className] - Additional CSS class name
+ * @param {Array<[string, string, import('preact').VNode]>} [props.customComponents] - Custom components to register
  * @returns {import('preact').VNode}
  */
 export function FormReact({
@@ -19,6 +20,7 @@ export function FormReact({
   onSubmit,
   onChange,
   className = '',
+  customComponents = [],
 }) {
   const containerRef = useRef(null);
   const formRef = useRef(null);
@@ -29,6 +31,11 @@ export function FormReact({
     // Initialize form
     formRef.current = new Form({
       container: containerRef.current,
+    });
+
+    // Register custom components
+    customComponents.forEach(([baseType, customType, component]) => {
+      formRef.current.registerCustomComponent(baseType, customType, component);
     });
 
     // Import schema

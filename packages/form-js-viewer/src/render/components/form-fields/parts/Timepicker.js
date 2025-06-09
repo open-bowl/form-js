@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { formatTime, parseInputTime } from '../../util/dateTimeUtil';
 import { isNumber } from 'min-dash';
 
-import ClockIcon from '../icons/Clock.svg';
+import ClockIcon from '../icons/Clock.svg?react';
 import { DropdownList } from './DropdownList';
 import { InputAdorner } from './InputAdorner';
 import { Label } from '../../Label';

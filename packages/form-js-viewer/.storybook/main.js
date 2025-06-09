@@ -33,7 +33,12 @@ const config = {
   "viteFinal": async (config) => {
     return {
       ...config,
-      plugins: [...config.plugins, svgr(),preact()]
+      plugins: [...config.plugins, svgr(), preact()],
+      esbuild: {
+        ...config.esbuild,
+        jsx: 'automatic',
+        jsxImportSource: 'preact'
+      }
     };
   }
 };
