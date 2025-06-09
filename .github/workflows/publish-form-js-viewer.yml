@@ -1,0 +1,44 @@
+name: Publish form-js-viewer
+
+on:
+  push:
+    branches:
+      - custom-components
+    paths:
+      - 'packages/form-js-viewer/**'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@open-bowl'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: |
+          cd packages/form-js-viewer
+          npm run build
+
+      - name: Publish to GitHub Packages
+        run: |
+          cd packages/form-js-viewer
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

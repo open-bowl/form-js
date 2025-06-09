@@ -1,5 +1,5 @@
 {
-  "name": "@bpmn-io/form-js-viewer",
+  "name": "@open-bowl/form-js-viewer",
   "version": "1.15.2",
   "description": "View forms - powered by bpmn.io",
   "exports": {
@@ -32,7 +32,9 @@
     "dev": "npm test -- --auto-watch --no-single-run",
     "generate-types": "tsc --allowJs --skipLibCheck --declaration --emitDeclarationOnly --outDir dist/types src/index.js && copyfiles --flat src/*.d.ts dist/types",
     "test": "karma start",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
@@ -65,5 +67,17 @@
   ],
   "files": [
     "dist"
-  ]
+  ],
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
+    "@preact/preset-vite": "^2.10.1",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/experimental-addon-test": "^8.6.14",
+    "@storybook/preact": "^8.6.14",
+    "@storybook/preact-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "storybook": "^8.6.14",
+    "vite-plugin-svgr": "^4.3.0"
+  }
 }

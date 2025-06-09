@@ -16,7 +16,7 @@ export class FieldFactory {
   create(attrs, isNewField = true) {
     const { id, type, key, path, _parent } = attrs;
 
-    const fieldDefinition = this._formFields.get(type);
+    const fieldDefinition = this._formFields.get(type, attrs);
 
     if (!fieldDefinition) {
       throw new Error(`form field of type <${type}> not supported`);

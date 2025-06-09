@@ -36,10 +36,11 @@ export function FormField(props) {
   // disabled straight away, if viewerCommands are not available
   const [initialValidationTrigger, setInitialValidationTrigger] = useState(!!viewerCommands);
 
-  const FormFieldComponent = formFields.get(field.type);
+  // Get the appropriate component based on type and custom type
+  const FormFieldComponent = formFields.get(field.type, field);
 
   if (!FormFieldComponent) {
-    throw new Error(`cannot render field <${field.type}>`);
+    throw new Error(`cannot render field <${field.type}${field.properties?.type ? `:${field.properties.type}` : ''}>`);
   }
 
   const fieldConfig = FormFieldComponent.config;

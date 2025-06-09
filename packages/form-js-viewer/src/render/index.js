@@ -1,8 +1,8 @@
-import { FormFields } from './FormFields';
+import { CustomFormFields } from './CustomFormFields';
 import { Renderer } from './Renderer';
 import { FileRegistry } from './FileRegistry';
 
-export { FormFields };
+export { CustomFormFields as FormFields };
 
 export * from './components';
 export * from './context';
@@ -10,7 +10,7 @@ export { useExpressionEvaluation, useSingleLineTemplateEvaluation, useTemplateEv
 
 export const RenderModule = {
   __init__: ['formFields', 'renderer'],
-  formFields: ['type', FormFields],
+  formFields: ['type', CustomFormFields],
   renderer: ['type', Renderer],
   fileRegistry: ['type', FileRegistry],
 };
