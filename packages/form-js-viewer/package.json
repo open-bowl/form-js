@@ -1,5 +1,5 @@
 {
-  "name": "@bpmn-io/form-js-viewer",
+  "name": "@open-bowl/form-js-viewer",
   "version": "1.15.2",
   "description": "View forms - powered by bpmn.io",
   "exports": {
