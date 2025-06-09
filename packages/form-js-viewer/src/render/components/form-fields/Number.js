@@ -8,8 +8,8 @@ import { Errors } from '../Errors';
 import { Label } from '../Label';
 import { TemplatedInputAdorner } from './parts/TemplatedInputAdorner';
 
-import AngelDownIcon from './icons/AngelDown.svg';
-import AngelUpIcon from './icons/AngelUp.svg';
+import AngelDownIcon from './icons/AngelDown.svg?react';
+import AngelUpIcon from './icons/AngelUp.svg?react';
 
 import { formFieldClasses } from '../Util';
 
