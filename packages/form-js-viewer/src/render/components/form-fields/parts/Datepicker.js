@@ -1,5 +1,5 @@
 import flatpickr from 'flatpickr';
-import CalendarIcon from '../icons/Calendar.svg?react';
+import CalendarIcon from '../icons/Calendar.svg';
 
 import { ENTER_KEYDOWN_EVENT, focusRelevantFlatpickerDay } from '../../util/dateTimeUtil';
 import { getLocaleReadableDateFormat, getLocaleDateFlatpickrConfig } from '../../util/localisationUtil';

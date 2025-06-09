@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { Form } from '../Form';
-import '../../assets/form-js-base.css';
 
 
 /**

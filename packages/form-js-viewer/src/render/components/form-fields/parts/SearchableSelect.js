@@ -5,9 +5,9 @@ import { useService, useCleanupSingleSelectValue } from '../../../hooks';
 
 import classNames from 'classnames';
 
-import XMarkIcon from '../icons/XMark.svg?react';
-import AngelDownIcon from '../icons/AngelDown.svg?react';
-import AngelUpIcon from '../icons/AngelUp.svg?react';
+import XMarkIcon from '../icons/XMark.svg';
+import AngelDownIcon from '../icons/AngelDown.svg';
+import AngelUpIcon from '../icons/AngelUp.svg';
 import { DropdownList } from './DropdownList';
 
 export function SearchableSelect(props) {
